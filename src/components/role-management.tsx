@@ -151,7 +151,7 @@ export function RoleManagement() {
           <DialogHeader>
             <DialogTitle>Edit Role</DialogTitle>
             <DialogDescription>
-              Update the role's details.
+              Update the roles details.
             </DialogDescription>
           </DialogHeader>
           {editingRole && (

@@ -181,7 +181,7 @@ export function UserManagement() {
           <DialogHeader>
             <DialogTitle>Edit User</DialogTitle>
             <DialogDescription>
-              Update the user's details.
+              Update the users details.
             </DialogDescription>
           </DialogHeader>
           {editingUser && (

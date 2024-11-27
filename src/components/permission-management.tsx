@@ -145,7 +145,7 @@ export function PermissionManagement() {
           <DialogHeader>
             <DialogTitle>Edit Permission</DialogTitle>
             <DialogDescription>
-              Update the permission's details.
+              Update the permissions details.
             </DialogDescription>
           </DialogHeader>
           {editingPermission && (
