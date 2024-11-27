@@ -42,7 +42,7 @@ export function UserManagement() {
   const [users, setUsers] = useState<User[]>(mockUsers)
   const [isAddUserOpen, setIsAddUserOpen] = useState(false)
   const [isEditUserOpen, setIsEditUserOpen] = useState(false)
-  const [newUser, setNewUser] = useState({ name: '', email: '', role: '', status: 'Active' as const })
+  const [newUser, setNewUser] = useState({ name: '', email: '', role: '', status: 'Active' as 'Active' | 'Inactive' })
   const [editingUser, setEditingUser] = useState<User | null>(null)
 
   const addUser = () => {
@@ -126,7 +126,7 @@ export function UserManagement() {
                   Status
                 </Label>
                 <Select
-                  onValueChange={(value) => setNewUser({ ...newUser, status: value as 'Active' | 'Inactive' })}
+                  onValueChange={(value: string) => setNewUser({ ...newUser, status: value as 'Active' | 'Inactive' })}
                   defaultValue={newUser.status}
                 >
                   <SelectTrigger className="col-span-3">
@@ -225,7 +225,7 @@ export function UserManagement() {
                   Status
                 </Label>
                 <Select
-                  onValueChange={(value) => setEditingUser({ ...editingUser, status: value as 'Active' | 'Inactive' })}
+                  onValueChange={(value : string) => setEditingUser({ ...editingUser, status: value as 'Active' | 'Inactive' })}
                   defaultValue={editingUser.status}
                 >
                   <SelectTrigger className="col-span-3">

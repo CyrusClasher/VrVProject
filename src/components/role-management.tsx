@@ -52,9 +52,7 @@ export function RoleManagement() {
     if (editingRole) {
       setRoles(roles.map(role => role.id === editingRole.id ? {
         ...editingRole,
-        permissions: typeof editingRole.permissions === 'string' 
-          ? editingRole.permissions.split(',').map(p => p.trim())
-          : editingRole.permissions
+        permissions: editingRole.permissions
       } : role))
       setIsEditRoleOpen(false)
       setEditingRole(null)
@@ -66,7 +64,7 @@ export function RoleManagement() {
   }
 
   const openEditDialog = (role: Role) => {
-    setEditingRole({...role, permissions: role.permissions.join(', ')})
+    setEditingRole({...role, permissions: role.permissions})
     setIsEditRoleOpen(true)
   }
 
@@ -174,7 +172,7 @@ export function RoleManagement() {
                 <Input
                   id="edit-permissions"
                   value={editingRole.permissions}
-                  onChange={(e) => setEditingRole({ ...editingRole, permissions: e.target.value })}
+                  onChange={(e) => setEditingRole({ ...editingRole, permissions: e.target.value.split(',').map(p => p.trim()) })}
                   className="col-span-3"
                   placeholder="Read, Write, Delete (comma-separated)"
                 />
